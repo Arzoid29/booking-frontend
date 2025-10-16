@@ -75,7 +75,7 @@ Responsive layout with Tailwind
 
 Scripts
 json
-Copy code
+
 {
   "dev": "next dev",
   "build": "next build",
@@ -89,5 +89,5 @@ Align backend CORS with your frontend origin(s).
 Send times to the API as UTC ISO strings; convert local inputs with:
 
 ts
-Copy code
+
 new Date(localValue).toISOString();

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Providers from "./components/Providers";
+import Providers from "../providers/Providers";
 
 export const metadata: Metadata = {
   title: "Booking App",
-  description: "MVP with Google Auth + Calendar",
+  description: "MVP with Google Auth + Calendar sync",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
