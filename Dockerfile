@@ -1,4 +1,3 @@
-# syntax=docker/dockerfile:1
 
 FROM node:20-alpine AS builder
 WORKDIR /app
@@ -6,20 +5,16 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN apk add --no-cache libc6-compat
 RUN npm i -g pnpm@9
 
-# Capa de dependencias para caché
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
-# Variables de entorno de build (incrustadas en el cliente)
 ARG NEXT_PUBLIC_GOOGLE_CLIENT_ID
 ARG NEXT_PUBLIC_API_URL
 ENV NEXT_PUBLIC_GOOGLE_CLIENT_ID=${NEXT_PUBLIC_GOOGLE_CLIENT_ID}
 ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
 
-# Copiar el resto del código
 COPY . .
 
-# Build de producción (usa scripts del proyecto)
 RUN pnpm build
 
 FROM node:20-alpine AS runner
