@@ -55,8 +55,8 @@ export default function ConfirmDialog({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
-      <div className="relative z-10 w-full max-w-md rounded-2xl border border-zinc-200 bg-white p-5 shadow-2xl dark:border-zinc-800 dark:bg-zinc-900">
+      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm" />
+      <div className="relative z-10 w-full max-w-md rounded-2xl border border-zinc-200 bg-white p-5 shadow-2xl ">
         <h3 id="confirm-title" className="text-lg font-semibold">
           {title}
         </h3>
