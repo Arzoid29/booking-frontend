@@ -4,10 +4,10 @@ import { GoogleLogin } from "@react-oauth/google";
 import { setToken, getToken } from "@/lib/auth";
 import axios from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import toast from "react-hot-toast";
 
-export default function LoginPage() {
+function LoginInner() {
   const router = useRouter();
   const from = useSearchParams().get("from") || "/";
   const API = process.env.NEXT_PUBLIC_API_URL!;
@@ -76,5 +76,13 @@ export default function LoginPage() {
         </p>
       </div>
     </main>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense>
+      <LoginInner />
+    </Suspense>
   );
 }

@@ -1,0 +1,18 @@
+# Excluir dependencias y artefactos de build
+node_modules
+.pnpm-store
+.next
+out
+coverage
+.vercel
+
+# Git y archivos locales
+.git
+.gitignore
+.DS_Store
+
+# Entornos (se pasan por args/ENV)
+.env*
+
+# Archivos de Compose
+docker-compose.yml
